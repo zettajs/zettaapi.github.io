@@ -69,16 +69,16 @@ a.btn-cta-primary:hover,
 }
 a.btn-cta-secondary,
 .btn-cta-secondary {
-  background: #E68025;
-  border: 1px solid #E68025;
+  background: #6d6d6d;
+  border: 1px solid #6d6d6d;
   color: #fff;
   font-weight: 600;
   text-transform: uppercase;
 }
 a.btn-cta-secondary:hover,
 .btn-cta-secondary:hover {
-  background: #ecb728;
-  border: 1px solid #ecb728;
+  background: #2d2d2d;
+  border: 1px solid #2d2d2d;
   color: #fff;
 }
 .text-highlight {
@@ -191,7 +191,7 @@ pre code {
   margin-top: 0;
 }
 .promo .title .highlight {
-  color: #E68025;
+  color: #6d6d6d;
 }
 .promo .intro {
   font-size: 28px;
