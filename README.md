@@ -1,2 +1,2 @@
 # icons
-Icons for the Zetta API
+Icons for the Zetta API!
