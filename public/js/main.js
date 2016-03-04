@@ -1,3 +1,5 @@
+---
+---
 jQuery(document).ready(function($) {
 
     /* ======= Scrollspy ======= */
@@ -7,9 +9,11 @@ jQuery(document).ready(function($) {
     
     $(window).bind('scroll', function() {
          if ($(window).scrollTop() > 50) {
+             $('.logo img').attr('src', "{{ site.baseurl }}public/images/zettalogo32x32orange.png");
              $('#header').addClass('navbar-fixed-top');
          }
          else {
+             $('.logo img').attr('src', "{{ site.baseurl }}public/images/zettalogo32x32white.png");
              $('#header').removeClass('navbar-fixed-top');
          }
     });
