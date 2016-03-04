@@ -9,11 +9,11 @@ jQuery(document).ready(function($) {
     
     $(window).bind('scroll', function() {
          if ($(window).scrollTop() > 50) {
-             $('.logo img').attr('src', "{{ site.baseurl }}public/images/zettalogo32x32orange.png");
+             $('.logo img').attr('src', "{{ site.baseurl }}public/images/zettalogo32x32fixed.png");
              $('#header').addClass('navbar-fixed-top');
          }
          else {
-             $('.logo img').attr('src', "{{ site.baseurl }}public/images/zettalogo32x32white.png");
+             $('.logo img').attr('src', "{{ site.baseurl }}public/images/zettalogo32x32.png");
              $('#header').removeClass('navbar-fixed-top');
          }
     });
