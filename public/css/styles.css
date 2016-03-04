@@ -1,4 +1,4 @@
-*/*   
+*/*
  * Template Name: devAid - Responsive Website Template for developers
  * Version: 1.0
  * Author: Xiaoying Riley at 3rd Wave Media
@@ -22,7 +22,7 @@ h5,
 h6 {
   font-family: 'Montserrat', sans-serif;
   font-weight: 700;
-  color: #e62e25;
+  color: #FF4300;
 }
 a {
   color: #e62e25;
@@ -55,7 +55,7 @@ a.btn:focus {
 }
 a.btn-cta-primary,
 .btn-cta-primary {
-  background: #480A0B;
+  background: #000000;
   border: 1px solid #480A0B;
   color: #fff;
   font-weight: 600;
@@ -93,7 +93,7 @@ pre code {
 /* ======= Header ======= */
 .header {
   padding: 10px 0;
-  background: #e62e25;
+  background: #FF4300;
   color: #fff;
   position: fixed;
   width: 100%;
@@ -106,7 +106,7 @@ pre code {
   box-shadow: 0 0 4px rgba(0, 0, 0, 0.4);
 }
 .header.navbar-fixed-top .logo a {
-  color: #e62e25;
+  color: #FF4300;
 }
 .header.navbar-fixed-top .main-nav .nav .nav-item a {
   color: #666666;
@@ -181,7 +181,7 @@ pre code {
 }
 /* ======= Promo Section ======= */
 .promo {
-  background: #e62e25;
+  background: #FF4300;
   color: #fff;
   padding-top: 150px;
 }
@@ -225,7 +225,7 @@ pre code {
   color: #480A0B;
 }
 .promo .social-media {
-  background: #9B0D12;
+  background: #4A4A4A;
   padding: 10px 0;
   margin: 0 auto;
 }
@@ -243,7 +243,7 @@ pre code {
   background: #f5f5f5;
 }
 .about .title {
-  color: #480A0B;
+  color: #000000;
   margin-top: 0;
   margin-bottom: 60px;
 }
@@ -263,24 +263,24 @@ pre code {
 }
 .about .item .icon-holder .fa {
   font-size: 24px;
-  color: #480A0B;
+  color: #000000;
 }
 .about .item .content {
   padding-left: 60px;
 }
 .about .item .content .sub-title {
   margin-top: 0;
-  color: #480A0B;
+  color: #000000;
   font-size: 18px;
 }
 /* ======= Features Section ======= */
 .features {
   padding: 80px 0;
-  background: #e62e25;
+  background: #FF4300;
   color: #fff;
 }
 .features .title {
-  color: #480A0B;
+  color: #000000;
   margin-top: 0;
   margin-bottom: 30px;
 }
@@ -304,7 +304,7 @@ pre code {
   background: #f5f5f5;
 }
 .docs .title {
-  color: #480A0B;
+  color: #000000;
   margin-top: 0;
   margin-bottom: 30px;
 }
@@ -361,7 +361,7 @@ pre code {
 .license .title {
   margin-top: 0;
   margin-bottom: 60px;
-  color: #480A0B;
+  color: #000000;
 }
 .license .license-inner {
   max-width: 800px;
@@ -434,7 +434,7 @@ pre code {
 /* ======= Contact Section ======= */
 .contact {
   padding: 80px 0;
-  background: #e62e25;
+  background: #FF4300;
   color: #fff;
 }
 .contact .contact-inner {
@@ -442,7 +442,7 @@ pre code {
   margin: 0 auto;
 }
 .contact .title {
-  color: #480A0B;
+  color: #000000;
   margin-top: 0;
   margin-bottom: 30px;
 }
@@ -478,7 +478,7 @@ pre code {
 }
 .contact .author-message .speech-bubble {
   margin-left: 155px;
-  background: #D30E17;
+  background: #ffffff;
   color: #480A0B;
   padding: 30px;
   -webkit-border-radius: 4px;
@@ -510,7 +510,7 @@ pre code {
   height: 0;
   border-top: 10px solid transparent;
   border-bottom: 10px solid transparent;
-  border-right: 10px solid #D30E17;
+  border-right: 10px solid #ffffff;
 }
 .contact .author-message .speech-bubble .source {
   margin-top: 30px;
@@ -522,7 +522,7 @@ pre code {
   color: #9B0D12;
 }
 .contact .info .sub-title {
-  color: #A90D13;
+  color: #000000;
   margin-bottom: 30px;
   margin-top: 0;
 }
@@ -558,7 +558,7 @@ pre code {
   float: left;
 }
 .contact .social-icons a:hover {
-  background: #e6ad14;
+  background: #4A4A4A;
 }
 .contact .social-icons a .fa {
   color: #fff;
@@ -571,7 +571,7 @@ pre code {
 /* ======= Footer ======= */
 .footer {
   padding: 15px 0;
-  background: #042a36;
+  background: #4A4A4A;
   color: #fff;
 }
 .footer .copyright {
@@ -580,7 +580,7 @@ pre code {
   opacity: 0.8;
 }
 .footer .fa-heart {
-  color: #fb866a;
+  color: #ffffff;
 }
 /* Extra small devices (phones, less than 768px) */
 @media (max-width: 767px) {
