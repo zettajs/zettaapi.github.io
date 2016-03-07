@@ -8,4 +8,4 @@ Icons for the Zetta API!
 - transparent PNGs
 - two color : black (#000) & white (#fff) 
 - naming convention:
-  - <device-type>-<device-state>.png
+  - `type-state.png`
