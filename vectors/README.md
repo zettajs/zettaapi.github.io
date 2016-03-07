@@ -1,0 +1,1 @@
+vector version of the Zetta API icons. creative common license applies.
