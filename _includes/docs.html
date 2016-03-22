@@ -8,11 +8,11 @@
       <h2 class="title text-center">Hello World!</h2>
       <div class="block">
         <h3 class="sub-title text-center">Blink a Light</h3>
-        <p>Blinking a light is the "Hello World!" of programming devices. So let's take simple steps between an API server and an API client and work our way toward a fully compliant Zetta API for a light bulb connected to the Web.</p>
+        <p>Blinking a light is the "Hello World!" of programming devices. So let's by design a device API by taking simple steps between an API server and an API client and work our way toward a fully compliant Zetta API for a light bulb connected to the Web.</p>
 
         <!--// Web Address -->
         <h3 class="sub-title text-center">Web Address</h3>
-        <p>Let's host our light at <a href="http://hello.zettaapi.org">http://hello.zettaapi.org</a>. What's a good URL design not only for our light but also for many future devices of various types connected via gateways in homes around the world? We'll use <b>/servers/{id}/devices/{id}</b> and make a <b>GET</b> request to it:</p>
+        <p>Let's host our light at <a href="http://hello.zettaapi.org">http://hello.zettaapi.org</a> and with a URL that handles our light and future device types. We'll also account for intermediate hardware servers that connect devices in homes,  and factor and on around the world? We'll use <b>/servers/{id}/devices/{id}</b> and make a <b>GET</b> request to it:</p>
         <div class="code-block">
           <pre><code class="language-markup">GET http://hello.zettaapi.org/servers/1/devices/1</code></pre>
         </div>
