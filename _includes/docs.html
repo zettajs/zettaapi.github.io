@@ -1,64 +1,106 @@
-    <!-- ******DOCS****** --> 
-    <section id="docs" class="docs section">
-        <div class="container">
-            <div class="docs-inner">
-            <h2 class="title text-center">Get Started</h2>            
-            <div class="block">
-                <h3 class="sub-title text-center">HTML</h3>
-                <p><a href="http://prismjs.com/" target="_blank">PrismJS</a> is used as the syntax highlighter here.</p>
-                <p>Below are the details of the custom PrismJS build used in this template. You can <a href="http://prismjs.com/download.html" target="_blank">build your own version</a> via their website should you need to.</p>
-                <ul class="list-unstyled">
-                    <li><strong>Compression level:</strong> Minified</li>
-                    <li><strong>Theme:</strong> Okaidia</li>
-                    <li><strong>Languages:</strong> Markup, CSS, C-like, JavaScript, PHP and Python</li>
-                </ul>
-                <div class="code-block">
-                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
-                    <pre><code class="language-markup">
-    &ltp class="my-style"&gt
-      Hello World!
-    &lt/p&gt
-                     </code></pre>
-                </div><!--//code-block-->
-            </div><!--//block-->
-            
-            <div class="block">
-                <h3 class="sub-title text-center">Style</h3>
-                <p>For a device of type security with a current state of armed-stay the default image file would be named  security-armed-stay.</p>
-                
-                <div class="code-block">
-                    <!--//Use Prismjs - http://prismjs.com/index.html#basic-usage -->
-                    <pre>
-    <code class="language-javascript">
-      {
-        "baseURL": "http://www.zettaapi.org/icons",
-        "filetype": "png"
-      }
-    </code></pre>
-                </div><!--//code-block-->
-            </div><!--//block-->
-            
-            <div class="block">
-                <h3 class="sub-title text-center">JavaScript</h3>
-                <p>Quisque rutrum. Aenean imperdiet. Etiam ultricies nisi vel augue. Curabitur ullamcorper ultricies nisi. Nam eget dui. Etiam rhoncus. Lorem ipsum dolor sit amet, consectetuer adipiscing elit ligula eget dolor.</p>
-                <div class="code-block">
-                    <pre><code class="language-javascript">
-    if( awesome ){
-        console.log('This is Awesome');
-    }else{
-        $('body').addClass('give-me-awesome');
+<!-- ******DOCS****** --> 
+<section id="docs" class="docs section">
+  <div class="container">
+    <div class="docs-inner">
+
+
+        <!--// Hello World -->
+      <h2 class="title text-center">Hello World!</h2>
+      <div class="block">
+        <h3 class="sub-title text-center">Blink a Light</h3>
+        <p>Blinking a light is the "Hello World!" of programming devices. So let's take simple steps between an API server and an API client and work our way toward a fully compliant Zetta API for a light bulb connected to the Web.</p>
+
+        <!--// Web Address -->
+        <h3 class="sub-title text-center">Web Address</h3>
+        <p>Let's host our light at <a href="http://hello.zettaapi.org">http://hello.zettaapi.org</a>. What's a good URL design not only for our light but also for many future devices of various types connected via gateways in homes around the world? We'll use <b>/servers/{id}/devices/{id}</b> and make a <b>GET</b> request to it:</p>
+        <div class="code-block">
+          <pre><code class="language-markup">GET http://hello.zettaapi.org/servers/1/devices/1</code></pre>
+        </div>
+
+        <!--// State Property -->
+        <h3 class="sub-title text-center">State Property</h3>
+        <p>Eventually the server will provide a lot of information about our devices. To start, though, how should the server respond to indicate the light is off? We'll design a <b>properties</b> section in our response to hold the <b>state</b> and additional information in the future:</p>
+        <div class="code-block">
+          <pre><code class="language-markup">{
+  "properties": {
+    "state": "off"
+  }
+}</code></pre>
+        </div>
+
+        <!--// Turn-on Action -->
+        <h3 class="sub-title text-center">Turn-On Action</h3>
+        <p>Now the client knows that the light is <b>off</b>. But how would the client turn it <b>on</b>? The client developers could read our API docs. Or better, the server will let clients know in the response by including an <b>actions</b> section:</p>
+        <div class="code-block">
+          <pre><code class="language-markup">{
+  "properties": {
+    "state": "off"
+  },
+  "actions": [{
+    "name": "turn-on",
+    "method": "POST",
+    "href": "http://hello.zettaapi.org/servers/1/devices/1",
+    "fields": [{
+      "name": "action",
+      "value": "turn-on"
+    }]
+  }]
+}</code></pre>
+        </div>
+
+
+        <!--// New State, New Action -->
+        <h3 class="sub-title text-center">New State, New Action</h3>
+        <p>Now that the client understands how to turn on the light, let's have the client <b>POST</b> to the light's URL with <b>action=turn-on</b>:</p>
+        <div class="code-block">
+          <pre><code class="language-markup">POST http://demo.zettaapi.org/servers/1/devices/1
+action=turn-on</code></pre>
+        </div>
+        <p>The server will turn the light on and then respond with the new current state. But what about actions? Now that the light is <b>on</b>, the server needs to tell the client how to turn it off:</p>
+        <div class="code-block">
+          <pre><code class="language-markup">{
+  "properties": {
+    "state": "on"
+  },
+  "actions": [{
+    "name": "turn-off",
+    "method": "POST",
+    "href": "http://hello.zettaapi.org/servers/1/devices/1",
+    "fields": [{
+      "name": "action",
+      "value": "turn-off"
+    }]
+  }]
+}</code></pre>
+        </div>
+
+
+        <!--// New State, New Action -->
+        <h3 class="sub-title text-center">Monitoring Changes</h3>
+        <p>Just after our API client turned on the light imagine that a person in the room walks over and turns it off again. Our API client thinks the light is on, but it's really off. How can the client find out about the change in state? The client could periodically poll the server. But we can do better. Instead, let's design the server so that it provides a WebSocket that will stream a log of changes to the client:</p>
+        <div class="code-block">
+          <pre><code class="language-markup">{
+  "properties": {
+    "state": "on"
+  },
+  "actions": [{
+    "name": "turn-off",
+    "method": "POST",
+    "href": "http://hello.zettaapi.org/servers/1/devices/1",
+    "fields": [{
+      "name": "action",
+      "value": "turn-off"
+    }]
+  }],
+  "links": [
+    { "title": "logs",
+      "href": "ws://hello.zettaapi.org/servers/1/events?topic=light%2F1%2Flogs"
     }
-                    </code></pre>
-                </div><!--//code-block-->
-            </div><!--//block-->   
-            <div class="block">
-                <h3 class="sub-title text-center">Full Documentation</h3>
-                <p>If your documentation is very long you can host the full docs page (including FAQ etc) on GitHub and provide a Call to Action button below to direct users there.</p>
-                <p class="text-center">
-                    <a class="btn btn-cta-primary" href="https://github.com/twbs/bootstrap" target="_blank">More on GitHub</a>
-                </p>
-            </div><!--//block-->
+  ]
+}</code></pre>
+        </div>
+
             
-            </div><!--//docs-inner-->         
-        </div><!--//container-->
-    </section><!--//docs->
+      </div><!--//docs-inner-->         
+    </div><!--//container-->
+  </section><!--//docs->
