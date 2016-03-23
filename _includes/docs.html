@@ -5,21 +5,27 @@
 
 
         <!--// Hello World -->
-      <h2 class="title text-center">Hello World!</h2>
+      <h2 class="title text-center">API</h2>
       <div class="block">
-        <h3 class="sub-title text-center">Blink a Light</h3>
+        <h3 class="sub-title text-center">Class</h3>
+        <h4 class="sub-title text-center">Device</h4>
+        <h4 class="sub-title text-center">Server</h4>
+        <h4 class="sub-title text-center">Root</h4>
         <p>Blinking a light is the "Hello World!" of programming devices. So let's by design a device API by taking simple steps between an API server and an API client and work our way toward a fully compliant Zetta API for a light bulb connected to the Web.</p>
 
         <!--// Web Address -->
-        <h3 class="sub-title text-center">Web Address</h3>
-        <p>Let's host our light at <a href="http://hello.zettaapi.org">http://hello.zettaapi.org</a> and with a URL that handles our light and future device types. We'll also account for intermediate hardware servers that connect devices in homes,  and factor and on around the world? We'll use <b>/servers/{id}/devices/{id}</b> and make a <b>GET</b> request to it:</p>
+        <h3 class="sub-title text-center">Properties</h3>
+        <h4 class="sub-title text-center">State</h4>
+        <h4 class="sub-title text-center">Style</h4>
+        <h4 class="sub-title text-center">Custom</h4>
+        <p>We'll host our light at <a href="http://hello.zettaapi.org">http://hello.zettaapi.org</a> with a URL design that can handle our light and future devices of various types. We'll also account for intermediate hardware gateways like homes automation hubs. Let's use <b>/servers/{id}/devices/{id}</b> and make a <b>GET</b> request to it:</p>
         <div class="code-block">
           <pre><code class="language-markup">GET http://hello.zettaapi.org/servers/1/devices/1</code></pre>
         </div>
 
         <!--// State Property -->
-        <h3 class="sub-title text-center">State Property</h3>
-        <p>Eventually the server will provide a lot of information about our devices. To start, though, how should the server respond to indicate the light is off? We'll design a <b>properties</b> section in our response to hold the <b>state</b> and additional information in the future:</p>
+        <h3 class="sub-title text-center">Actions</h3>
+        <p>Eventually the server will provide a lot of information about our devices. To start, though, how should the server respond to indicate the light is off? We'll design a <b>properties</b> section in our response to hold the <b>state</b> property:</p>
         <div class="code-block">
           <pre><code class="language-markup">{
   "properties": {
@@ -29,28 +35,23 @@
         </div>
 
         <!--// Turn-on Action -->
-        <h3 class="sub-title text-center">Turn-On Action</h3>
-        <p>Now the client knows that the light is <b>off</b>. But how would the client turn it <b>on</b>? The client developers could read our API docs. Or better, the server will let clients know in the response by including an <b>actions</b> section:</p>
+        <h3 class="sub-title text-center">Links</h3>
+        <h4 class="sub-title text-center">WebSockets</h4>
+        
+        <p>Now the client knows that the light is <b>off</b>. But how would the client turn it <b>on</b>? The client developers could the read API docs. Or better, let's have the server tell the client within the API response by including an <b>actions</b> section:</p>
         <div class="code-block">
           <pre><code class="language-markup">{
-  "properties": {
-    "state": "off"
-  },
-  "actions": [{
-    "name": "turn-on",
-    "method": "POST",
-    "href": "http://hello.zettaapi.org/servers/1/devices/1",
-    "fields": [{
-      "name": "action",
-      "value": "turn-on"
-    }]
-  }]
+  "links": [
+    { "title": "logs",
+      "href": "ws://hello.zettaapi.org/servers/1/events?topic=light%2F1%2Flogs"
+    }
+  ]
 }</code></pre>
         </div>
 
 
         <!--// New State, New Action -->
-        <h3 class="sub-title text-center">New State, New Action</h3>
+        <h3 class="sub-title text-center">Entities</h3>
         <p>Now that the client understands how to turn on the light, let's have the client <b>POST</b> to the light's URL with <b>action=turn-on</b>:</p>
         <div class="code-block">
           <pre><code class="language-markup">POST http://demo.zettaapi.org/servers/1/devices/1
@@ -73,34 +74,6 @@ action=turn-on</code></pre>
   }]
 }</code></pre>
         </div>
-
-
-        <!--// New State, New Action -->
-        <h3 class="sub-title text-center">Monitoring Changes</h3>
-        <p>Just after our API client turned on the light imagine that a person in the room walks over and turns it off again. Our API client thinks the light is on, but it's really off. How can the client find out about the change in state? The client could periodically poll the server. But we can do better. Instead, let's design the server so that it provides a WebSocket that will stream a log of changes to the client:</p>
-        <div class="code-block">
-          <pre><code class="language-markup">{
-  "properties": {
-    "state": "on"
-  },
-  "actions": [{
-    "name": "turn-off",
-    "method": "POST",
-    "href": "http://hello.zettaapi.org/servers/1/devices/1",
-    "fields": [{
-      "name": "action",
-      "value": "turn-off"
-    }]
-  }],
-  "links": [
-    { "title": "logs",
-      "href": "ws://hello.zettaapi.org/servers/1/events?topic=light%2F1%2Flogs"
-    }
-  ]
-}</code></pre>
-        </div>
-
-            
       </div><!--//docs-inner-->         
     </div><!--//container-->
   </section><!--//docs->
