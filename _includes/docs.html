@@ -6,74 +6,228 @@
 
         <!--// Hello World -->
       <h2 class="title text-center">API</h2>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ul>
+        <li>properties</li>
+        <li>actions</li>
+        <li>links</li>
+        <li>entities</li>
+        <li>class</li>
+      </ul>
+      <p>See <a href="https://github.com/kevinswiber/siren">Siren</a> for more details.</p>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <ul>
+        <li>device</li>
+        <li>server</li>
+        <li>root</li>
+      </ul>
+      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h2 class="title text-center">device</h2>
       <div class="block">
-        <h3 class="sub-title text-center">Class</h3>
-        <h4 class="sub-title text-center">Device</h4>
-        <h4 class="sub-title text-center">Server</h4>
-        <h4 class="sub-title text-center">Root</h4>
-        <p>Blinking a light is the "Hello World!" of programming devices. So let's by design a device API by taking simple steps between an API server and an API client and work our way toward a fully compliant Zetta API for a light bulb connected to the Web.</p>
-
-        <!--// Web Address -->
-        <h3 class="sub-title text-center">Properties</h3>
-        <h4 class="sub-title text-center">State</h4>
-        <h4 class="sub-title text-center">Style</h4>
-        <h4 class="sub-title text-center">Custom</h4>
-        <p>We'll host our light at <a href="http://hello.zettaapi.org">http://hello.zettaapi.org</a> with a URL design that can handle our light and future devices of various types. We'll also account for intermediate hardware gateways like homes automation hubs. Let's use <b>/servers/{id}/devices/{id}</b> and make a <b>GET</b> request to it:</p>
-        <div class="code-block">
-          <pre><code class="language-markup">GET http://hello.zettaapi.org/servers/1/devices/1</code></pre>
-        </div>
+        <h3 class="subtitle text-center">properties</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <ul>
+          <li>id</li>
+          <li>type</li>
+          <li>state</li>
+          <li>name</li>
+          <li>style</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h4 class="subtitle text-center">id</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"properties": {
+  &hellip;
+  "id": "4"
+  &hellip;
+}</code></pre></div>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">GET http://demo.zettaapi.org/servers/1/devices/4</code></pre></div>
+        <h4 class="subtitle text-center">type</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"properties": {
+  &hellip;
+  "type": "robot"
+  &hellip;
+}</code></pre></div>
+        <h4 class="subtitle text-center">state</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"properties": {
+  &hellip;
+  "state": "walking"
+  &hellip;
+}</code></pre></div>
+        <h4 class="subtitle text-center">name</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"properties": {
+  &hellip;
+  "name": "B-9"
+  &hellip;
+}</code></pre></div>
+        <h4 class="subtitle text-center">style</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"properties": {
+  &hellip;
+  "style": {
+    "stateImage": "http://www.zettaapi.org/icons/robot-walking.png",
+    "backgroundColor": {"decimal": {"red": 0, "green": 35, "blue": 80}, "hex": '#002350'},
+    "foregroundColor": {"decimal": {"red": 255, "green": 202, "blue": 0}, "hex": '#FFCA00'}
+  }
+  &hellip;
+}</code></pre></div>
+        <h4 class="subtitle text-center">Custom Properties</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"properties": {
+  &hellip;
+  "heading": 180,
+  "speed": 5,
+  "location": {"latitude": 42.329557, "longitude": -83.065893}
+  &hellip;
+}</code></pre></div>
 
         <!--// State Property -->
-        <h3 class="sub-title text-center">Actions</h3>
-        <p>Eventually the server will provide a lot of information about our devices. To start, though, how should the server respond to indicate the light is off? We'll design a <b>properties</b> section in our response to hold the <b>state</b> property:</p>
+        <h3 class="subtitle text-center">actions</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
         <div class="code-block">
-          <pre><code class="language-markup">{
-  "properties": {
-    "state": "off"
-  }
-}</code></pre>
+          <pre><code class="language-markup">"actions": [{
+  "name": "turn-off",
+  "method": "POST",
+  "href": "http://demo.zettaapi.org/servers/1/devices/1",
+  "fields": [{
+    "name": "action",
+    "value": "turn-off"
+}]</code></pre>
         </div>
 
         <!--// Turn-on Action -->
-        <h3 class="sub-title text-center">Links</h3>
-        <h4 class="sub-title text-center">WebSockets</h4>
-        
-        <p>Now the client knows that the light is <b>off</b>. But how would the client turn it <b>on</b>? The client developers could the read API docs. Or better, let's have the server tell the client within the API response by including an <b>actions</b> section:</p>
-        <div class="code-block">
-          <pre><code class="language-markup">{
-  "links": [
-    { "title": "logs",
-      "href": "ws://hello.zettaapi.org/servers/1/events?topic=light%2F1%2Flogs"
-    }
-  ]
-}</code></pre>
-        </div>
+        <h3 class="subtitle text-center">links</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <ul>
+          <li>logs</li>
+          <li>state</li>
+          <li>meta</li>
+          <li>self</li>
+          <li>up</li>
+        </ul>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h4 class="subtitle text-center">logs WebSocket Stream</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"links": [
+  &hellip;
+  {
+    "title": "logs",
+    "rel": [
+    "monitor",
+    "http://rels.zettajs.io/object-stream"
+    ],
+    "href": "ws://demo.zettaapi.org/servers/1/events?topic=light%2F4%2Flogs"
+  }
+  &hellip;
+]</code></pre></div>
+      <h4 class="subtitle text-center">state  WebSocket Stream</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"links": [
+  &hellip;
+  {
+    "title": "state",
+    "rel": [
+    "monitor",
+    "http://rels.zettajs.io/object-stream"
+    ],
+    "href": "ws://demo.zettaapi.org/servers/1/events?topic=light%2F4%2Fstate"
+  }
+  &hellip;
+]</code></pre></div>
+      <h4 class="subtitle text-center">Custom  WebSocket Streams</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"links": [
+  &hellip;
+  {
+    "title": "speed",
+    "rel": [
+    "monitor",
+    "http://rels.zettajs.io/object-stream"
+    ],
+    "href": "ws://demo.zettaapi.org/servers/1/events?topic=robot%2F4%2Fspeed"
+  }
+  &hellip;
+]</code></pre></div>
+      <h4 class="subtitle text-center">meta</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"links": [
+  &hellip;
+  {
+    "rel": [
+    "http://rels.zettajs.io/type",
+    "describedby"
+    ],
+    "href": "http://demo.zettaapi.org/servers/1/meta/robot"
+  }
+  &hellip;
+]</code></pre></div>
+      <h4 class="subtitle text-center">self</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"links": [
+  &hellip;
+  {
+    "rel": [
+    "self",
+    "edit"
+    ],
+    "href": "http://demo.zettaapi.org/servers/1/devices/4"
+  }
+  &hellip;
+]</code></pre></div>
+      <h4 class="subtitle text-center">up</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"links": [
+  &hellip;
+  {
+    "title": "1",
+    "rel": [
+    "up",
+    "http://rels.zettajs.io/server"
+    ],
+    "href": "http://demo.zettaapi.org/servers/1"
+  }
+  &hellip;
+]</code></pre></div>
 
 
         <!--// New State, New Action -->
-        <h3 class="sub-title text-center">Entities</h3>
-        <p>Now that the client understands how to turn on the light, let's have the client <b>POST</b> to the light's URL with <b>action=turn-on</b>:</p>
-        <div class="code-block">
-          <pre><code class="language-markup">POST http://demo.zettaapi.org/servers/1/devices/1
-action=turn-on</code></pre>
-        </div>
-        <p>The server will turn the light on and then respond with the new current state. But what about actions? Now that the light is <b>on</b>, the server needs to tell the client how to turn it off:</p>
-        <div class="code-block">
-          <pre><code class="language-markup">{
-  "properties": {
-    "state": "on"
+        <h3 class="subtitle text-center">entities</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"entities": [
+  &hellip;
+  {
+    "class": ["device", "robot"],
+    "rel": ["http://rels.zettajs.io/device"],
+    "properties": {&hellip;},
+    "links": {&hellip;}
   },
-  "actions": [{
-    "name": "turn-off",
-    "method": "POST",
-    "href": "http://hello.zettaapi.org/servers/1/devices/1",
-    "fields": [{
-      "name": "action",
-      "value": "turn-off"
-    }]
-  }]
-}</code></pre>
-        </div>
+  {
+    "class": ["device", "camera"],
+    "rel": ["http://rels.zettajs.io/device"],
+    "properties": {&hellip;},
+    "links": {&hellip;}
+  }
+  &hellip;
+]</code></pre></div>
+        <h3 class="subtitle text-center">class</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"class": ["device", "robot"]</code></pre></div>
+
+        <h2 class="title text-center">server</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h3 class="subtitle text-center">class</h3>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"class": ["server"]</code></pre></div>
+
+        <h2 class="title text-center">root</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <h4 class="subtitle text-center">root</h4>
+        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <div class="code-block"><pre><code class="language-markup">"class": ["root"]</code></pre></div>
       </div><!--//docs-inner-->         
     </div><!--//container-->
   </section><!--//docs->
