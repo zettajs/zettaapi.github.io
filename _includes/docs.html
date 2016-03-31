@@ -6,7 +6,7 @@
 
         <!--// Hello World -->
       <h2 class="title text-center">API</h2>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Zetta provides five sections in each Zetta API response:</p>
       <ul>
         <li>properties</li>
         <li>actions</li>
@@ -14,18 +14,18 @@
         <li>entities</li>
         <li>class</li>
       </ul>
-      <p>See <a href="https://github.com/kevinswiber/siren">Siren</a> for more details.</p>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>Zetta is a grammar of the Siren hypermedia specification. See <a href="https://github.com/kevinswiber/siren">Siren</a> for more details.</p>
+      <p>There are three resource types in Zetta:</p>
       <ul>
         <li>device</li>
         <li>server</li>
         <li>root</li>
       </ul>
-      <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <p>The root resource has many servers and servers have many devices.</p>
       <h2 class="title text-center">device</h2>
       <div class="block">
         <h3 class="subtitle text-center">properties</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>There are five reserved properties:</p>
         <ul>
           <li>id</li>
           <li>type</li>
@@ -33,39 +33,39 @@
           <li>name</li>
           <li>style</li>
         </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Any number of arbitrary properties can be added.</p>
         <h4 class="subtitle text-center">id</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>id uniquely identifies a device.</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "id": "4"
   &hellip;
 }</code></pre></div>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The device id is used in the URL with the following syntax:</p>
         <div class="code-block"><pre><code class="language-markup">GET http://demo.zettaapi.org/servers/1/devices/4</code></pre></div>
         <h4 class="subtitle text-center">type</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The type properties indicates the type of device: light, camera, robot, etc..</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "type": "robot"
   &hellip;
 }</code></pre></div>
         <h4 class="subtitle text-center">state</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The state property indicates the current state of the device, for example the robot is currently walking.</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "state": "walking"
   &hellip;
 }</code></pre></div>
         <h4 class="subtitle text-center">name</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The name property is often assigned by the end user of the device as part of the device claiming process.</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "name": "B-9"
   &hellip;
 }</code></pre></div>
         <h4 class="subtitle text-center">style</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The style property contains metadata for processing the API and rendering a user interface for the API. The style property can contain units of measure, symbols and the number of significant digits for a metric. The style property is serves a purpose akin to a cascading stylesheet (CSS) in the world of the UI web. The stateImage, for example, is typically a concatenation of the device type and device state, like robot-walking. The Zetta API includes a growing collection of device <a class="scrollto" href="#icons">icons</a>.</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "style": {
@@ -76,7 +76,7 @@
   &hellip;
 }</code></pre></div>
         <h4 class="subtitle text-center">Custom Properties</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Custom properties hold device-specific attributes and there are no limits to the number of custom properties or the structure of properties used. To indicate the direction, speed and location of a robot, one might include the following custom properties:</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "heading": 180,
@@ -87,21 +87,22 @@
 
         <!--// State Property -->
         <h3 class="subtitle text-center">actions</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>As a true hypermedia REST API, each device provides a list of possible actions. The list of actions typically changes based on the state of the device. For example, if our robot is standing then we can tell the robot to stand:</p>
         <div class="code-block">
           <pre><code class="language-markup">"actions": [{
-  "name": "turn-off",
+  "name": "stand",
   "method": "POST",
   "href": "http://demo.zettaapi.org/servers/1/devices/1",
   "fields": [{
     "name": "action",
-    "value": "turn-off"
+    "value": "stand",
+    "type": "hidden"
 }]</code></pre>
         </div>
 
         <!--// Turn-on Action -->
         <h3 class="subtitle text-center">links</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Zetta provides five reserved links:.</p>
         <ul>
           <li>logs</li>
           <li>state</li>
@@ -109,9 +110,9 @@
           <li>self</li>
           <li>up</li>
         </ul>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>Importantly, all device WebSockets are listed in the links section along with metadata and custom WebSocket streams.</p>
         <h4 class="subtitle text-center">logs WebSocket Stream</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The logs WebSocket passes all device events from the server to the client. A client UI, for example, will typically subscribe to the logs stream in order to keep device state and available actions synchronized with the actual state of the device.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -120,12 +121,12 @@
     "monitor",
     "http://rels.zettajs.io/object-stream"
     ],
-    "href": "ws://demo.zettaapi.org/servers/1/events?topic=light%2F4%2Flogs"
+    "href": "ws://demo.zettaapi.org/servers/1/events?topic=robot%2F4%2Flogs"
   }
   &hellip;
 ]</code></pre></div>
       <h4 class="subtitle text-center">state  WebSocket Stream</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The state WebSocket stream only provides information about the state for a particular device.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -134,12 +135,12 @@
     "monitor",
     "http://rels.zettajs.io/object-stream"
     ],
-    "href": "ws://demo.zettaapi.org/servers/1/events?topic=light%2F4%2Fstate"
+    "href": "ws://demo.zettaapi.org/servers/1/events?topic=robot%2F4%2Fstate"
   }
   &hellip;
 ]</code></pre></div>
-      <h4 class="subtitle text-center">Custom  WebSocket Streams</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+      <h4 class="subtitle text-center">Custom WebSocket Streams</h4>
+        <p>Custom WebSocket streams send device-specific attributes from the server to the client. There are no limits to the number of custom streams or the structure of data sent over the stream. To track the speed of a robot, one might include the following custom stream:.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -153,7 +154,7 @@
   &hellip;
 ]</code></pre></div>
       <h4 class="subtitle text-center">meta</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The meta link shows all the possible states, transitions and other data about a device.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -166,7 +167,7 @@
   &hellip;
 ]</code></pre></div>
       <h4 class="subtitle text-center">self</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The self link is a link to the current device. This is especially helpful for clients to keep track of pagination scenarios and navigation a collection of devices.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -179,7 +180,7 @@
   &hellip;
 ]</code></pre></div>
       <h4 class="subtitle text-center">up</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The up link for a devices always takes the client up to the server for the device.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -196,7 +197,7 @@
 
         <!--// New State, New Action -->
         <h3 class="subtitle text-center">entities</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>At the level of the server, the entities array holds a list of devices on the server. For example, a server with a camera and a robot would look like the following:</p>
         <div class="code-block"><pre><code class="language-markup">"entities": [
   &hellip;
   {
@@ -214,19 +215,19 @@
   &hellip;
 ]</code></pre></div>
         <h3 class="subtitle text-center">class</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The class section is an array of resource classses. For a device of type robot, the class array would look like the following:</p>
         <div class="code-block"><pre><code class="language-markup">"class": ["device", "robot"]</code></pre></div>
 
         <h2 class="title text-center">server</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The server resource is the container which holds the devices.</p>
         <h3 class="subtitle text-center">class</h3>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The server will always have a class of type server.</p>
         <div class="code-block"><pre><code class="language-markup">"class": ["server"]</code></pre></div>
 
         <h2 class="title text-center">root</h2>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The root resource contains a list of devices.</p>
         <h4 class="subtitle text-center">root</h4>
-        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.</p>
+        <p>The root resource always has a class of type root.</p>
         <div class="code-block"><pre><code class="language-markup">"class": ["root"]</code></pre></div>
       </div><!--//docs-inner-->         
     </div><!--//container-->
