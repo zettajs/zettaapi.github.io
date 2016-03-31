@@ -6,7 +6,7 @@
 
         <!--// Hello World -->
       <h2 class="title text-center">API</h2>
-      <p>Zetta provides five sections in each Zetta API response:</p>
+      <p>Zetta provides five sections in each Zetta API response.</p>
       <ul>
         <li>properties</li>
         <li>actions</li>
@@ -15,7 +15,7 @@
         <li>class</li>
       </ul>
       <p>Zetta is a grammar of the Siren hypermedia specification. See <a href="https://github.com/kevinswiber/siren">Siren</a> for more details.</p>
-      <p>There are three resource types in Zetta:</p>
+      <p>There are three resource types in Zetta.</p>
       <ul>
         <li>device</li>
         <li>server</li>
@@ -25,7 +25,7 @@
       <h2 class="title text-center">device</h2>
       <div class="block">
         <h3 class="subtitle text-center">properties</h3>
-        <p>The Zetta API has five reserved properties:</p>
+        <p>The Zetta API has five reserved properties.</p>
         <ul>
           <li>id</li>
           <li>type</li>
@@ -33,18 +33,18 @@
           <li>name</li>
           <li>style</li>
         </ul>
-        <p>Any number of arbitrary properties can be added.</p>
+        <p>Zetta allows for an arbitrary number of custom properties.</p>
         <h4 class="subtitle text-center">id</h4>
-        <p>id uniquely identifies a device.</p>
+        <p>The id property uniquely identifies a device or a server.</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "id": "4"
   &hellip;
 }</code></pre></div>
-        <p>The device id is used in the URL with the following syntax:</p>
+        <p>The server and device ids are used in the URL with the syntax below.</p>
         <div class="code-block"><pre><code class="language-markup">GET http://demo.zettaapi.org/servers/1/devices/4</code></pre></div>
         <h4 class="subtitle text-center">type</h4>
-        <p>The type properties indicates the type of device: light, camera, robot, etc..</p>
+        <p>The type property indicates the type of device: light, camera, robot, etc..</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "type": "robot"
@@ -58,14 +58,14 @@
   &hellip;
 }</code></pre></div>
         <h4 class="subtitle text-center">name</h4>
-        <p>The name property is often assigned by the end user of the device as part of the device claiming process.</p>
+        <p>The name property is often assigned by the end user of the device as part of the device claiming process. Below, we have robot named B-9.</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "name": "B-9"
   &hellip;
 }</code></pre></div>
         <h4 class="subtitle text-center">style</h4>
-        <p>The style property contains metadata for processing the API and rendering a user interface for the API. The style property can contain units of measure, symbols and the number of significant digits for a metric. The style property is serves a purpose akin to a cascading stylesheet (CSS) in the world of the UI web. The stateImage, for example, is typically a concatenation of the device type and device state, like robot-walking. The Zetta API includes a growing collection of device <a class="scrollto" href="#icons">icons</a>.</p>
+        <p>The style property contains metadata for processing the API and rendering a user interface for the API. The style property can contain units of measure, symbols and the number of significant digits for a metric. The style property provides information like a cascading stylesheet (CSS) in the world of the UI web. The stateImage, for example, is typically a concatenation of the device type and device state, like robot-walking. The Zetta API includes a growing collection of device <a class="scrollto" href="#icons">icons</a>.</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "style": {
@@ -76,7 +76,7 @@
   &hellip;
 }</code></pre></div>
         <h4 class="subtitle text-center">Custom Properties</h4>
-        <p>Custom properties hold device-specific attributes and there are no limits to the number of custom properties or the structure of properties used. To indicate the direction, speed and location of a robot, one might include the following custom properties:</p>
+        <p>Custom properties are device-specific attributes. The Zetta API supports an arbitrary number of custom properties. Each property can be any JSON-supported structure. To indicate the direction, speed and location of a robot, for example, one might include the custom properties below.</p>
         <div class="code-block"><pre><code class="language-markup">"properties": {
   &hellip;
   "heading": 180,
@@ -87,7 +87,7 @@
 
         <!--// State Property -->
         <h3 class="subtitle text-center">actions</h3>
-        <p>As a true hypermedia REST API, each device provides a list of possible actions. The list of actions typically changes based on the state of the device. For example, if our robot is standing then we can tell the robot to stand:</p>
+        <p>As a true hypermedia REST API, each device provides a list of possible actions. The list of actions typically changes based on the state of the device. For example, if our robot is sitting then we can tell the robot to stand.</p>
         <div class="code-block">
           <pre><code class="language-markup">"actions": [{
   "name": "stand",
@@ -102,7 +102,7 @@
 
         <!--// Turn-on Action -->
         <h3 class="subtitle text-center">links</h3>
-        <p>Zetta provides five reserved links:.</p>
+        <p>Zetta provides five reserved links.</p>
         <ul>
           <li>logs</li>
           <li>state</li>
@@ -112,7 +112,7 @@
         </ul>
         <p>Importantly, all device WebSockets are listed in the links section along with metadata and custom WebSocket streams.</p>
         <h4 class="subtitle text-center">logs WebSocket Stream</h4>
-        <p>The logs WebSocket passes all device events from the server to the client. A client UI, for example, will typically subscribe to the logs stream in order to keep device state and available actions synchronized with the actual state of the device.</p>
+        <p>The logs WebSocket passes all device events from the server to the client. A client UI, for example, subscribes to the logs stream in order to keep device state and available actions synchronized with the actual state of the device.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -126,7 +126,7 @@
   &hellip;
 ]</code></pre></div>
       <h4 class="subtitle text-center">state  WebSocket Stream</h4>
-        <p>The state WebSocket stream only provides information about the state for a particular device.</p>
+        <p>The state WebSocket stream provides information about the state for a particular device.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -140,7 +140,7 @@
   &hellip;
 ]</code></pre></div>
       <h4 class="subtitle text-center">Custom WebSocket Streams</h4>
-        <p>Custom WebSocket streams send device-specific attributes from the server to the client. There are no limits to the number of custom streams or the structure of data sent over the stream. To track the speed of a robot, one might include the following custom stream:.</p>
+        <p>Custom WebSocket streams send device-specific attributes from the server to the client. There are no limits to the number of custom streams or the structure of data sent over the stream. To track the speed of a robot, one might include the custom stream below.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -167,7 +167,7 @@
   &hellip;
 ]</code></pre></div>
       <h4 class="subtitle text-center">self</h4>
-        <p>The self link is a link to the current device. This is especially helpful for clients to keep track of pagination scenarios and navigation a collection of devices.</p>
+        <p>The self link is a link to the current device. This is especially helpful for clients to keep track of pagination scenarios and navigating a collection of devices.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -180,7 +180,7 @@
   &hellip;
 ]</code></pre></div>
       <h4 class="subtitle text-center">up</h4>
-        <p>The up link for a devices always takes the client up to the server for the device.</p>
+        <p>The up link for a devices always takes the client up to the device's server. The up link for a server takes the client to the server's root.</p>
         <div class="code-block"><pre><code class="language-markup">"links": [
   &hellip;
   {
@@ -197,7 +197,7 @@
 
         <!--// New State, New Action -->
         <h3 class="subtitle text-center">entities</h3>
-        <p>At the level of the server, the entities array holds a list of devices on the server. For example, a server with a camera and a robot would look like the following:</p>
+        <p>At the level of the server, the entities array holds a list of devices on the server. For example, a server with a camera and a robot would look like the response below.</p>
         <div class="code-block"><pre><code class="language-markup">"entities": [
   &hellip;
   {
@@ -215,13 +215,13 @@
   &hellip;
 ]</code></pre></div>
         <h3 class="subtitle text-center">class</h3>
-        <p>The class section is an array of resource classses. For a device of type robot, the class array would look like the following:</p>
+        <p>The class section is an array of resource classses. For a device of type robot, the class would look like the array below.</p>
         <div class="code-block"><pre><code class="language-markup">"class": ["device", "robot"]</code></pre></div>
 
         <h2 class="title text-center">server</h2>
         <p>The server resource is the container which holds the devices.</p>
         <h3 class="subtitle text-center">class</h3>
-        <p>The server will always have a class of type server.</p>
+        <p>The server always has class of type server.</p>
         <div class="code-block"><pre><code class="language-markup">"class": ["server"]</code></pre></div>
 
         <h2 class="title text-center">root</h2>
